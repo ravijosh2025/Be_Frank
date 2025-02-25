@@ -44,7 +44,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'dotenv'
+  gem "dotenv"
 end
 
 group :development do
@@ -61,8 +61,10 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'devise'
-gem 'jwt'
-gem 'devise-jwt'
-gem 'jsonapi-serializer'
-
+gem "devise"
+gem "jwt"
+gem "devise-jwt"
+gem "bootstrap"
+gem "sassc-rails"
+gem "active_model_serializers"
+gem "rack-cors"

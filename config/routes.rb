@@ -21,7 +21,13 @@ Rails.application.routes.draw do
   }
 
   namespace :api do
-    resources :users, only: [:index, :show, :create, :update, :destroy]
+    resources :users, only: [:index, :show, :create, :update, :destroy] do
+      resources :events
+    end
+    resources :events
+    resources :schools
+    resources :donations
+    resources :feedback
+    resources :feedback_reply
   end
-
 end
