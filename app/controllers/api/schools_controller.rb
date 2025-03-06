@@ -1,22 +1,22 @@
-module Api    
+module Api
     class SchoolsController < ApplicationController
-        before_action :set_school, only: [:show, :update, :destroy]
+        before_action :set_school, only: [ :show, :update, :destroy ]
 
         def index
             schools=School.all
-            render json:schools
+            render json: schools
         end
 
         def show
-            render json:@school
+            render json: @school
         end
 
         def create
-           school=School.new(school_params);
+           school=School.new(school_params)
            if school.save
             render json: school, status: :created
            else
-            render json: {error: school.error.full_messages}, status: :unprocessable_entity
+            render json: { error: school.error.full_messages }, status: :unprocessable_entity
            end
         end
 
@@ -30,9 +30,9 @@ module Api
 
         def destroy
             if @school.destroy
-                render json:{message: "School deleted"}, status: :ok
+                render json: { message: "School deleted" }, status: :ok
             else
-                render json:{message:"School could not find or invalid input"}
+                render json: { message: "School could not find or invalid input" }
             end
         end
 
@@ -41,11 +41,15 @@ module Api
         def set_school
             @school=School.find(params[:id])
             rescue ActiveRecord::RecordNotFound
-                render json: { error: 'School not found' }, status: :not_found
+                render json: { error: "School not found" }, status: :not_found
         end
 
         def school_params
-            params.require(:school).permit(:name, :city, :state)
+            params.require(:school).permit(
+                :name,
+                :city,
+                :state
+                )
         end
     end
 end

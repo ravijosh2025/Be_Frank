@@ -38,7 +38,11 @@ module Api
         end
 
         def reply_params
-            params.require(:feedback_reply).permit(:reply, :user_id, :feedback_id)
+            params.require(:feedback_reply).permit(
+                :reply,
+                :user_id,
+                :feedback_id
+                )
         end
     end
 end
