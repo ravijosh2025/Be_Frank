@@ -17,7 +17,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", "~> 5.3"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -32,7 +32,7 @@ gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -43,6 +43,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "dotenv"
 end
 
 group :development do
@@ -58,3 +60,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise"
+gem "jwt"
+gem "devise-jwt"
+gem "bootstrap"
+gem "sassc-rails"
+gem "active_model_serializers"
+gem "rack-cors"

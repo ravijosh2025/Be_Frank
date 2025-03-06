@@ -23,5 +23,8 @@ module BeFrank
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # config/application.rb or environment-specific file
+    # config.cache_store = :redis_store, ‘redis://localhost:6379/0/cache’, { expires_in: 90.minutes }
   end
 end
