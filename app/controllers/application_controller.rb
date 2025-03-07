@@ -2,11 +2,6 @@ class ApplicationController < ActionController::Base
   include Auth
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
-  protect_from_forgery with: :exception, unless: -> { request.format.json? } # CSRF for web only
-  skip_before_action :verify_authenticity_token, unless: -> { request.format.json? }
-  before_action :authenticate_request
-  skip_before_action :authenticate_request, if: :devise_controller?
-  before_action :configure_sign_up_params, if: :devise_controller?
 
   private
 

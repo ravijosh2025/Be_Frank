@@ -11,12 +11,12 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :role, presence:true
+  validates :role, presence: true
   validates :email, format: { with: Devise.email_regexp }, presence: true, uniqueness: { case_insensitive: true }
   validates :mobile_number, presence: true, format: { with: /\A(\+\d{1,3}[- ]?)?\d{10}\z/, message: "must be a valid phone number" }
-  validates :address, presence:true
+  validates :address, presence: true
+
+  def admin?
+    self.role == "admin"
+  end
 end
-
-
-
-

@@ -1,6 +1,5 @@
 module Api
-  class UsersController < ApplicationController
-    before_action :set_user, only: [ :show, :update, :destroy ]
+  class UsersController < ApiController
     skip_before_action :authenticate_request, only: [ :create ]
 
     def index
@@ -9,7 +8,7 @@ module Api
     end
 
     def show
-      render json: @user, status: :ok
+      render json: user, status: :ok
     end
 
     def create
@@ -22,27 +21,25 @@ module Api
     end
 
     def update
-      if @user.update(user_params)
-        render json: @user, status: :ok
+      if user.update(user_params)
+        render json: user, status: :ok
       else
-        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
       end
     end
 
     def destroy
-      if @user.destroy
+      if user.destroy
         render json: { message: "User deleted successfully" }, status: :ok
       else
-        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
       end
     end
 
     private
 
-    def set_user
-      @user = User.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        render json: { error: "User not found" }, status: :not_found
+    def user
+      User.find(params[:id])
     end
 
     def user_params

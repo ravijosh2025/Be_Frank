@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  
+  get "user_donations/index"
+    root "home#redirect_to_login"
+    get "/redirect_to_login", to: "home#redirect_to_login"
+    get "dashboard" => "dashboard#index"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,17 +15,16 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  # root "posts#index"
-  post 'login', to: 'authentication_controllers#login'
-  delete 'logout', to: 'authentication_controllers#logout'
+  post "login", to: "authentication_controllers#login"
+  delete "logout", to: "authentication_controllers#logout"
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    registrations: "users/registrations",
+    sessions: "users/sessions"
   }
 
   namespace :api do
-    resources :users, only: [:index, :show, :create, :update, :destroy] do
+    resources :users, only: [ :index, :show, :create, :update, :destroy ] do
       resources :events
     end
     resources :events
@@ -30,4 +33,6 @@ Rails.application.routes.draw do
     resources :feedback
     resources :feedback_reply
   end
+
+  resources :user_donations, only: [ :index ] # Add this lineend
 end

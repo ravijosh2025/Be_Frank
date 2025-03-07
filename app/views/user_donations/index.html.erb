@@ -1,0 +1,41 @@
+<h1 class="text-center">Donations</h1>
+
+<table class="user-table">
+  <thead>
+    <tr>
+    <th>Donar Name</th>
+      <th>Amount</th>
+      <th>Note</th>
+      <th>Event Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @donations.each do |donation| %>
+      <tr>
+        <td><%= donation.user.first_name+" "+ donation.user.last_name %></td>
+        <td><%= donation.amount %></td>
+        <td><%= donation.note %></td>
+        <td><%= donation.event.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<style>
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .user-table th, .user-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  .user-table th {
+    background-color: #f4f4f4;
+  }
+  .user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+</style>

@@ -45,6 +45,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "dotenv"
+  gem "rspec-rails", "~> 7.0.0"
 end
 
 group :development do
@@ -59,6 +60,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "simplecov", require: false, group: :test
 end
 
 gem "devise"
@@ -68,3 +70,8 @@ gem "bootstrap"
 gem "sassc-rails"
 gem "active_model_serializers"
 gem "rack-cors"
+gem "cancancan"
+
+gem "factory_bot_rails"
+gem "shoulda-matchers"
+gem "faker"

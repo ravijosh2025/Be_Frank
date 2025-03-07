@@ -1,5 +1,5 @@
 module Api
-  class EventsController < ApplicationController
+  class EventsController < ApiController
     before_action :set_event, only: [ :show, :update, :destroy ]
     skip_before_action :authenticate_request, only: [ :index ]
 

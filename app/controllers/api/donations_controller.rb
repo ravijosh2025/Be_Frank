@@ -1,5 +1,5 @@
 module Api
-  class DonationsController < ApplicationController
+  class DonationsController < ApiController
     skip_before_action :authenticate_request, only: [ :index ]
     def index
       donations = Donation.all

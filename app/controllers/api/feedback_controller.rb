@@ -1,5 +1,5 @@
 module Api
-  class FeedbackController < ApplicationController
+  class FeedbackController < ApiController
     before_action :set_feedback, only: [ :update, :destroy ]
 
     def index
