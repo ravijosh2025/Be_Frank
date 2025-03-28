@@ -9,6 +9,8 @@ class Event < ApplicationRecord
     validates :name, presence: true
     validates :description, presence: true
     validates :date, presence: true
+    validates :user, presence: true
+    validates :school, presence: true
 
   def image_urls
     if images.attached?

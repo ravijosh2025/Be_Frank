@@ -36,9 +36,9 @@ RSpec.describe User, type: :model do
 
   describe "callbacks" do
     it "downcases email before saving" do
-      user = User.create!(first_name: "John", last_name: "Doe", role: "user",
+      user = User.create!(first_name: "test", last_name: "testing", role: "user",
                           email: "TEST@EXAMPLE.COM", password: "password",
-                          mobile_number: "1234567890", address: "Somewhere")
+                          mobile_number: "1234567890", address: "Pune")
       expect(user.reload.email).to eq("test@example.com")
     end
   end

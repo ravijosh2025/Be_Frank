@@ -7,9 +7,9 @@ class JsonWebToken
   end
 
   def self.decode(token)
-    body = JWT.decode(token, SECRET_KEY)[0]
-    HashWithIndifferentAccess.new(body)
+    body = JWT.decode(token, SECRET_KEY)[0]  # 1. Decode the token using SECRET_KEY
+    HashWithIndifferentAccess.new(body)       # 2. Convert it into a hash that allows both string & symbol keys
     rescue
-      nil
+     nil                                       # 3. If decoding fails (invalid token), return nil
   end
 end

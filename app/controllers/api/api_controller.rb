@@ -1,8 +1,7 @@
 module Api
   class ApiController < ActionController::API
     include Auth
-    include CanCan::ControllerAdditions  # ✅ Correct module name  # Fix: Use "CanCanCan" instead of "CanCan"
-    before_action :authenticate_request
+    include CanCan::ControllerAdditions
     load_and_authorize_resource
 
     rescue_from CanCan::AccessDenied, with: :handle_access_denied
